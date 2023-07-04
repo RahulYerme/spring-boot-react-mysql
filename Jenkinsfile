@@ -63,10 +63,8 @@ pipeline{
     stage('Building our image') {
      steps{
       script {
-	      sh '''#! /bin/bash
-                       cd /var/lib/jenkins/workspace/React-Java-app-pipeline/react-client
-                       dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                       '''
+	      
+        ver = docker.build registry + ":$BUILD_NUMBER"
     }
   }
  }
@@ -74,8 +72,8 @@ pipeline{
       steps {
 		script {
 			withDockerRegistry(credentialsId: 'dockerhub') {
-			  dockerImage.push("${env.BUILD_NUMBER}")
-			 dockerImage.push("latest")
+			  ver.push("${env.BUILD_NUMBER}")
+			 ver.push("latest")
 			}
 		  }
         
