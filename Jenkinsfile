@@ -55,7 +55,7 @@ pipeline{
     stage('Local artifact archive') {
       steps {
         script{
-        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+        archiveArtifacts artifacts: 'spring-boot-server/target/*.jar', followSymlinks: false
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
       }
     }
