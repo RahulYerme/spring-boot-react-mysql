@@ -63,7 +63,7 @@ pipeline{
     stage('Building our image') {
      steps{
       script {
-	      
+	  sh 'ls'    
         ver = docker.build registry + ":$BUILD_NUMBER"
     }
   }
