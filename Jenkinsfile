@@ -25,9 +25,8 @@ pipeline{
           sh '''#! /bin/bash
                        cd /var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server
 		       ls
-                       
+                       sh 'mvn clean install'
                        '''
-	 sh 'mvn clean install'
          }
        }
          
