@@ -62,12 +62,13 @@ pipeline{
     }
     stage('Building our image') {
      steps{
-      script {
-	  sh 'ls'    
+	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client'){
+      script {    
         ver = docker.build registry + ":$BUILD_NUMBER"
     }
   }
  }
+    }
     stage('push docker image') {
       steps {
 		script {
