@@ -20,6 +20,7 @@ pipeline{
        steps{
          script{
            sh 'cd spring-boot-server'
+	   sh 'ls'
            sh 'mvn clean install'
          }
        }
