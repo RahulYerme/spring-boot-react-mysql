@@ -19,7 +19,7 @@ pipeline{
      stage('Build backend'){
        steps{
          script{
-           sh 'cd \spring-boot-server'
+           sh 'cd /spring-boot-server'
            sh 'mvn clean install'
          }
        }
@@ -28,7 +28,7 @@ pipeline{
     stage('Build frontend'){
        steps{
          script{
-           sh 'cd \react-client'
+           sh 'cd /react-client'
            sh 'npm install'
          }
        }
