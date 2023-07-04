@@ -10,9 +10,10 @@ pipeline{
    
   agent any
   
-  tools {
-     maven 'apache-maven-3.9.3'
-       }
+   tools { 
+        maven 'Maven 3.9.3' 
+        
+    }
 	stages{
     
      stage('Build backend'){
