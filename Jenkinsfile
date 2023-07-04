@@ -36,8 +36,10 @@ pipeline{
     stage('Build frontend'){
        steps{
          script{
-           sh 'cd react-client'
-           sh 'npm install'
+           sh '''#! /bin/bash
+                       cd /var/lib/jenkins/workspace/React-Java-app-pipeline/react-client
+                       npm install
+                       '''
          }
        }
          
