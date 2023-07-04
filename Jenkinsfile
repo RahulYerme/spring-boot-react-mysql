@@ -56,11 +56,11 @@ pipeline{
       steps {
         script{
         archiveArtifacts artifacts: 'spring-boot-server/target/*.jar', followSymlinks: false
-        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+       /* archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false */
       }
     }
     }
-   /* stage('Building our image') {
+    stage('Building our image') {
      steps{
       script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -77,7 +77,7 @@ pipeline{
 		  }
         
       }
-    }*/
+    }
   }
     
 }
