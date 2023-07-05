@@ -60,7 +60,7 @@ pipeline{
       }
     }
     }
-    stage('Building frontend image') {
+   /* stage('Building frontend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client'){
       script {    
@@ -99,7 +99,7 @@ pipeline{
 		  }
         
       }
-    }
+    }*/
    stage("Nexus Repository Upload" ){
       steps{
         script{
