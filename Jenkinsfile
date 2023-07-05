@@ -103,7 +103,7 @@ pipeline{
    stage("Nexus Repository Upload" ){
       steps{
         script{
-         nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
+         nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', 
                                             file: '/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server/target/spring-boot-data-jpa-0.0.1-SNAPSHOT.jar',
                                             type: 'jar']], 
                                             credentialsId: 'newnexus', 
