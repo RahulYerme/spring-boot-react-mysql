@@ -104,14 +104,14 @@ pipeline{
       steps{
         script{
          nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
-                                            file: 'target/users-1.0.1-SNAPSHOT.jar',
+                                            file: 'target/spring-boot-data-jpa-0.0.1-SNAPSHOT.jar',
                                             type: 'jar']], 
                                             credentialsId: 'newnexus', 
-                                            groupId: 'com.bbtutorials', 
+                                            groupId: 'org.springframework.boot', 
                                             nexusUrl: '72.28.77.142:8085', 
                                             nexusVersion: 'nexus3', 
                                             protocol: 'http', 
-                                            repository: 'Javaapplication',
+                                            repository: 'backend',
                                             version: '1.0.1-SNAPSHOT'
         }
       }
