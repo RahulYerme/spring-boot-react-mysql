@@ -112,7 +112,7 @@ pipeline{
                                             nexusVersion: 'nexus3', 
                                             protocol: 'http', 
                                             repository: 'backend',
-                                            version: '1.0.1-SNAPSHOT'
+                                            version: '3.1.0-SNAPSHOT'
         }
       }
     }
