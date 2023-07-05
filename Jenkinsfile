@@ -56,7 +56,7 @@ pipeline{
       steps {
         script{
         archiveArtifacts artifacts: 'spring-boot-server/target/*.jar', followSymlinks: false
-       /* archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false */
+        archiveArtifacts artifacts: '/var/lib/jenkins/workspace/React-Java-app-pipeline/. *', followSymlinks: false
       }
     }
     }
