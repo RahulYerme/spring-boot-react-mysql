@@ -103,16 +103,16 @@ pipeline{
    stage("Nexus Repository Upload" ){
       steps{
         script{
-         nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-data-jpa', classifier: '', 
-                                            file: '/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server/target/spring-boot-data-jpa-1.0.1-SNAPSHOT.jar',
-                                            type: 'jar']], 
-                                            credentialsId: 'newnexus', 
-                                            groupId: 'com.bezkoder', 
-                                            nexusUrl: '72.28.77.142:8085', 
-                                            nexusVersion: 'nexus3', 
-                                            protocol: 'http', 
-                                            repository: 'backend',
-                                            version: '1.1.0-SNAPSHOT'
+         nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-data-jpa', classifier: '',
+					    file: '/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server/target/spring-boot-data-jpa-1.0.1-SNAPSHOT.jar',
+					    type: 'Jar']], 
+		                            credentialsId: 'newnexus', 
+		                            groupId: 'com.bezkoder', 
+		                            nexusUrl: '172.31.229.127:8085', 
+		                            nexusVersion: 'nexus3', 
+		                            protocol: 'http', 
+		                            repository: 'backend', 
+		                            version: '1.0.1-SNAPSHOT'
         }
       }
     }
