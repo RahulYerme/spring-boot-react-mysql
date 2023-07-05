@@ -100,6 +100,22 @@ pipeline{
         
       }
     }
+   stage("Nexus Repository Upload" ){
+      steps{
+        script{
+         nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
+                                            file: 'target/users-1.0.1-SNAPSHOT.jar',
+                                            type: 'jar']], 
+                                            credentialsId: 'newnexus', 
+                                            groupId: 'com.bbtutorials', 
+                                            nexusUrl: '72.28.77.142:8085', 
+                                            nexusVersion: 'nexus3', 
+                                            protocol: 'http', 
+                                            repository: 'Javaapplication',
+                                            version: '1.0.1-SNAPSHOT'
+        }
+      }
+    }
   }
     
 }
