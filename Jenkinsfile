@@ -1,10 +1,11 @@
 def ver
+def ver1
 
 pipeline{
   environment {
     registry = "rahulyerme1234/react-java-app"
+    registry1 = "rahulyerme1234/react-java-app-backend"
     registryCredential = 'dockerhub'
-    dockerImage = ''
   }
   
    
@@ -26,7 +27,6 @@ pipeline{
                        cd /var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server
                        mvn clean install
 		       cd /var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server
-	               ls
 		       chown -R jenkins:jenkins target
                        '''
          }
@@ -60,11 +60,20 @@ pipeline{
       }
     }
     }
-    stage('Building our image') {
+    stage('Building frontend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client'){
       script {    
         ver = docker.build registry + ":$BUILD_NUMBER"
+    }
+  }
+ }
+    }
+   stage('Building backend image') {
+     steps{
+	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server'){
+      script {    
+        ver1 = docker.build registry1 + ":$BUILD_NUMBER"
     }
   }
  }
@@ -75,6 +84,17 @@ pipeline{
 			withDockerRegistry(credentialsId: 'dockerhub') {
 			  ver.push("${env.BUILD_NUMBER}")
 			 ver.push("latest")
+			}
+		  }
+        
+      }
+    }
+   stage('push backend docker image') {
+      steps {
+		script {
+			withDockerRegistry(credentialsId: 'dockerhub') {
+			  ver1.push("${env.BUILD_NUMBER}")
+			 ver1.push("latest")
 			}
 		  }
         
