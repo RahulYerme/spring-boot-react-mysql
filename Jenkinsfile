@@ -75,7 +75,7 @@ pipeline{
   }
  }
     }
-    stage('synk docker image') {
+    /*stage('synk docker image') {
      steps{
 	
       script { 
@@ -87,7 +87,7 @@ pipeline{
                        '''
         }
  }
-    }
+    }*/
     stage('push docker image') {
       steps {
 		script {
