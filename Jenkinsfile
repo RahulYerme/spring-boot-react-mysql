@@ -20,10 +20,7 @@ pipeline{
      stage('Build backend'){
        steps{
          script{
-           /*sh 'cd spring-boot-server'
-	   sh 'ls'
-           sh 'mvn clean install'*/
-          sh '''#! /bin/bash
+           sh '''#! /bin/bash
                        cd /var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server
                        mvn clean install
 		       cd /var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server
