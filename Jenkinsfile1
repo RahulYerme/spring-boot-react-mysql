@@ -7,7 +7,7 @@ pipeline{
           input message: 'Enter Username And Password To Continue.', 
 	        parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
 	        defaultValue: 'k8sdeploy', name: '', required: false)]
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+                sh 'echo $HOME'
         }
       }
     }
