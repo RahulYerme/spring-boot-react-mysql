@@ -106,7 +106,8 @@ pipeline{
 			snykSecurity (
 				organisation: 'rahulyerme67', 
 				snykInstallation: 'Snykdocker',
-				snykTokenId: 'SnykID',
+				snykTokenId: 'e6f1ba75-da14-47db-9368-a74bcaded961',
+				
 				failOnIssues: 'false',
 				targetFile: '/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client/package.json'
 			)
