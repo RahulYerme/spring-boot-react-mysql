@@ -1,5 +1,5 @@
-def ver
-def ver1
+def front
+def backend
 
 pipeline{
   environment {
@@ -60,11 +60,11 @@ pipeline{
       }
     }
     }
-   /* stage('Building frontend image') {
+    stage('Building frontend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client'){
       script {    
-        ver = docker.build registry + ":$BUILD_NUMBER"
+        front = docker.build registry + ":$BUILD_NUMBER"
     }
   }
  }
@@ -73,7 +73,7 @@ pipeline{
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server'){
       script {    
-        ver1 = docker.build registry1 + ":$BUILD_NUMBER"
+        backend = docker.build registry1 + ":$BUILD_NUMBER"
     }
   }
  }
@@ -83,7 +83,7 @@ pipeline{
 	
       script { 
         sh 'snyk auth 'SnykID'' 
-	sh 'snyk container test $ver1 --json-file-output=docker.json' 
+	sh 'snyk container test $front --json-file-output=docker.json' 
         sh 'snyk-to-html -i docker.json -o dockerscan .html'
         }
  }
@@ -109,7 +109,7 @@ pipeline{
 		  }
         
       }
-    }*/
+    }
    stage('snyk scan') {
       steps {
 		script {
