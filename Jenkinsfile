@@ -107,7 +107,8 @@ pipeline{
 				organisation: 'rahulyerme67', 
 				snykInstallation: 'Snykdocker',
 				snykTokenId: 'SnykID',
-				failOnIssues: 'false'
+				failOnIssues: 'false',
+				targetFile: '/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client/package.json'
 			)
 			}
 		  }
