@@ -79,7 +79,8 @@ pipeline{
      steps{
 	
       script { 
-           sh '''#! /bin/bash
+	      sh '''
+                       ls -la && pwd
                        snyk auth 'SnykID'
 		       snyk container test $front --json-file-output=docker.json 
                        snyk-to-html -i docker.json -o dockerscan .html
