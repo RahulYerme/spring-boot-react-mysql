@@ -103,10 +103,9 @@ pipeline{
    stage('snyk scan') {
       steps {
 		script {
-			snykSecurity failOnIssues: false, organisation: 'rahulyerme67', 
-			snykInstallation: 'Snykdocker', 
-			snykTokenId: 'SnykID', 
-			targetFile: '/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client/Dockerfile'
+			snykSecurity organisation: 'rahulyerme67', 
+				snykInstallation: 'Snykdocker',
+				snykTokenId: 'SnykID'
 			}
 		  }
         
