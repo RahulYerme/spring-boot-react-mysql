@@ -14,7 +14,7 @@ spec:
     spec:                       # Spec for the containers that will run inside the Pods
       containers:
       - name: front-end
-        image: rahulyerme1234/react-java-app:41
+        image: rahulyerme1234/react-java-app:latest
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
