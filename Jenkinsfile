@@ -100,6 +100,18 @@ pipeline{
         
       }
     }*/
+   stage('push backend docker image') {
+      steps {
+		script {
+			snykSecurity failOnIssues: false, organisation: 'rahulyerme67', 
+			snykInstallation: 'Snykdocker', 
+			snykTokenId: 'SnykID', 
+			targetFile: '/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client'
+			}
+		  }
+        
+      }
+    }*/
    stage("Nexus Repository Upload" ){
       steps{
         script{
