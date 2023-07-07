@@ -75,19 +75,7 @@ pipeline{
   }
  }
     }
-    /*stage('synk docker image') {
-     steps{
-	
-      script { 
-	      sh '''
-                       ls -la && pwd
-                       snyk auth 'SnykID'
-		       snyk container test $front --json-file-output=docker.json 
-                       snyk-to-html -i docker.json -o dockerscan .html
-                       '''
-        }
- }
-    }*/
+    
     stage('push docker image') {
       steps {
 		script {
