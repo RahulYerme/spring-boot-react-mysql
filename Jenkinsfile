@@ -100,7 +100,7 @@ pipeline{
         
       }
     }*/
-   stage('push backend docker image') {
+   stage('snyk scan') {
       steps {
 		script {
 			snykSecurity failOnIssues: false, organisation: 'rahulyerme67', 
@@ -111,7 +111,8 @@ pipeline{
 		  }
         
       }
-    }*/
+	
+    
    stage("Nexus Repository Upload" ){
       steps{
         script{
