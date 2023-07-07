@@ -79,9 +79,11 @@ pipeline{
      steps{
 	
       script { 
-        sh 'snyk auth 'SnykID'' 
-	sh 'snyk container test $front --json-file-output=docker.json' 
-        sh 'snyk-to-html -i docker.json -o dockerscan .html'
+           sh '''#! /bin/bash
+                       snyk auth 'SnykID'
+		       snyk container test $front --json-file-output=docker.json 
+                       snyk-to-html -i docker.json -o dockerscan .html
+                       '''
         }
  }
     }
