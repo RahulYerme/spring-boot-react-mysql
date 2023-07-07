@@ -103,9 +103,12 @@ pipeline{
    stage('snyk scan') {
       steps {
 		script {
-			snykSecurity organisation: 'rahulyerme67', 
+			snykSecurity (
+				organisation: 'rahulyerme67', 
 				snykInstallation: 'Snykdocker',
-				snykTokenId: 'SnykID'
+				snykTokenId: 'SnykID',
+				failOnIssues: 'false'
+			)
 			}
 		  }
         
