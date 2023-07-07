@@ -89,8 +89,8 @@ pipeline{
       steps {
 		script {
 			withDockerRegistry(credentialsId: 'dockerhub') {
-			  ver.push("${env.BUILD_NUMBER}")
-			 ver.push("latest")
+			  front.push("${env.BUILD_NUMBER}")
+			 front.push("latest")
 			}
 		  }
         
@@ -100,8 +100,8 @@ pipeline{
       steps {
 		script {
 			withDockerRegistry(credentialsId: 'dockerhub') {
-			  ver1.push("${env.BUILD_NUMBER}")
-			 ver1.push("latest")
+			  backend.push("${env.BUILD_NUMBER}")
+			 backend.push("latest")
 			}
 		  }
         
