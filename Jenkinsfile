@@ -78,6 +78,16 @@ pipeline{
   }
  }
     }
+    stage('synk docker image') {
+     steps{
+	
+      script { 
+        sh 'snyk auth 'SnykID'' 
+	sh 'snyk container test $ver1 --json-file-output=docker.json' 
+        sh 'snyk-to-html -i docker.json -o dockerscan .html'
+        }
+ }
+    }
     stage('push docker image') {
       steps {
 		script {
