@@ -4,7 +4,7 @@ pipeline{
     stage('User-input'){
       steps{
           
-          withKubeConfig([credentialsId: 'my-AKS-cred']) {
+          withKubeConfig([credentialsId: 'minikubecred']) {
         script{
           input message: 'Enter Username And Password To Continue.', 
 	        parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
