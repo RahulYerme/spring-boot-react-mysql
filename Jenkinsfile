@@ -77,13 +77,14 @@ pipeline{
     }
  stage('synk docker image') {
      steps{
-	
+	withEnv(['PATH+EXTRA=/root/.nvm/versions/node/v18.16.1/bin/snyk']){
       script { 
         sh 'snyk auth 'SnykID'' 
 	sh 'snyk container test $front --json-file-output=docker.json' 
         sh 'snyk-to-html -i docker.json -o dockerscan .html'
         }
     }	
+ }
  }
 stage('push docker image') {
       steps {
