@@ -3,8 +3,8 @@ pipeline{
   stages{
     stage('User-input'){
       steps{
-          withEnv(['PATH+EXTRA=/root/.minikube']){
-          dir('/var/lib/jenkins/workspace/React-Java-app-pipeline'){
+          withEnv(['PATH+EXTRA=/root/.minikube/ca.crt']){
+          
         script{
           input message: 'Enter Username And Password To Continue.', 
 	        parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
@@ -17,7 +17,7 @@ pipeline{
         
       }
     }
-  }
+  
 }
 }
 }
