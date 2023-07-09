@@ -3,19 +3,21 @@ pipeline{
   stages{
     stage('User-input'){
       steps{
+        withKubeConfig([credentialsId: 'minikubecred']) {
           dir('/var/lib/jenkins/workspace/React-Java-app-pipeline'){
         script{
           input message: 'Enter Username And Password To Continue.', 
 	        parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
 	        defaultValue: 'k8sdeploy', name: '', required: false)]
                 
-              /*  sh 'kubectl apply -f front.yml'
-                sh 'kubectl apply -f backend.yml' */
-        kubernetesDeploy(configs: "deployment.yaml")
+                sh 'kubectl apply -f front.yml'
+                /*sh 'kubectl apply -f backend.yml' */
+        
 
         }
       }
     }
   }
+}
 }
 }
