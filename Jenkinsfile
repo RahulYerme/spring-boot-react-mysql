@@ -66,7 +66,7 @@ pipeline{
   }
  }
     }
-   /*stage('Building backend image') {
+   stage('Building backend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server'){
       script {    
@@ -74,22 +74,8 @@ pipeline{
     }
   }
  }
-    }*/
- stage('synk docker image') {
-     steps{
-	withEnv(['PATH+EXTRA=/root/.nvm/versions/node/v18.16.1/bin/snyk']){
-      script { 
-	/*sh 'chown -R jenkins:jenkins /root/.nvm/versions/node/v18.16.1/bin/snyk'*/
-	sh '''
-           snyk auth e6f1ba75-da14-47db-9368-a74bcaded961 
-	   snyk container test $front --json-file-output=docker.json 
-            snyk-to-html -i docker.json -o dockerscan .html
-	   chown -R root:root /root/.nvm/versions/node/v18.16.1/bin/snyk
-        '''
-        }
-    }	
- }
- }
+    }
+ 
 stage('push docker image') {
       steps {
 		script {
