@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('User-input'){
       steps{
-          withEnv(['PATH+EXTRA=/root/.minikube/ca.crt']){
+          withKubeConfig([credentialsId: 'minikubecred']) {
           
         script{
           input message: 'Enter Username And Password To Continue.', 
