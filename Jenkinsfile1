@@ -4,7 +4,7 @@ pipeline{
     stage('User-input'){
       steps{
           
-          
+          withKubeConfig([credentialsId: 'my-AKS-cred']) {
         script{
           input message: 'Enter Username And Password To Continue.', 
 	        parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
@@ -13,7 +13,7 @@ pipeline{
                 sh 'kubectl apply -f front.yml'
                 /*sh 'kubectl apply -f backend.yml' */
         
-
+         }
         
       }
     }
