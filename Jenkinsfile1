@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('User-input'){
       steps{
-        
+          withEnv(['PATH+EXTRA=/root/.minikube']){
           dir('/var/lib/jenkins/workspace/React-Java-app-pipeline'){
         script{
           input message: 'Enter Username And Password To Continue.', 
@@ -12,7 +12,7 @@ pipeline{
                 
                 sh 'kubectl apply -f front.yml'
                 /*sh 'kubectl apply -f backend.yml' */
-        
+        }
 
         
       }
