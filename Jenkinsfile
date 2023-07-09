@@ -80,7 +80,7 @@ pipeline{
 	withEnv(['PATH+EXTRA=/root/.nvm/versions/node/v18.16.1/bin/snyk']){
       script { 
 	/*sh 'chown -R jenkins:jenkins /root/.nvm/versions/node/v18.16.1/bin/snyk'*/
-        sh 'snyk auth 'SnykID'' 
+        sh 'snyk auth 'SnykID' 
 	sh 'snyk container test $front --json-file-output=docker.json' 
         sh 'snyk-to-html -i docker.json -o dockerscan .html'
 	sh 'chown -R root:root /root/.nvm/versions/node/v18.16.1/bin/snyk'
