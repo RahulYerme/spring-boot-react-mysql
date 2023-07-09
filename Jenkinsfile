@@ -81,7 +81,7 @@ pipeline{
       script { 
 	/*sh 'chown -R jenkins:jenkins /root/.nvm/versions/node/v18.16.1/bin/snyk'*/
 	sh '''
-           snyk auth 6cf8b3f2-33f2-431f-a574-13e7f1d4fe58 
+           snyk auth e6f1ba75-da14-47db-9368-a74bcaded961 
 	   snyk container test $front --json-file-output=docker.json 
             snyk-to-html -i docker.json -o dockerscan .html
 	   chown -R root:root /root/.nvm/versions/node/v18.16.1/bin/snyk
