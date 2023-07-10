@@ -75,6 +75,21 @@ pipeline{
   }
  }
     }
+stage('synk docker image') {
+     steps{
+	
+      script { 
+	sh '''
+           snyk auth e6f1ba75-da14-47db-9368-a74bcaded961 
+	   snyk container test $front --json-file-output=docker.json 
+           snyk-to-html -i docker.json -o dockerscan .html
+	   
+        '''
+        
+    }	
+ }
+ }
+		
  
 stage('push docker image') {
       steps {
