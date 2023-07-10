@@ -11,7 +11,7 @@ pipeline{
 	        defaultValue: 'k8sdeploy', name: '', required: false)]
                 
                 sh 'kubectl apply -f front.yml'
-                /*sh 'kubectl apply -f backend.yml' */
+                sh 'kubectl apply -f backend.yml'
         
          }
         
