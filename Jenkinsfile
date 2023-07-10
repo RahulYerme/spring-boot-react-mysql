@@ -53,7 +53,7 @@ pipeline{
       steps {
         script{
         archiveArtifacts artifacts: 'spring-boot-server/target/*.jar', followSymlinks: false
-        /*archiveArtifacts artifacts: '/var/lib/jenkins/workspace/React-Java-app-pipeline/. *', followSymlinks: false */
+        
       }
     }
     }
@@ -98,22 +98,7 @@ stage('push docker image') {
         
       }
     }
-   stage('snyk scan') {
-      steps {
-		script {
-			snykSecurity (
-				organisation: 'rahulyerme67', 
-				snykInstallation: 'Snykdocker',
-				snykTokenId: 'SnykID',
-				
-				failOnIssues: 'false',
-				targetFile: '/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client/package.json'
-			)
-			}
-		  }
-        
-      }
-	
+ 
     
    stage("Nexus Repository Upload" ){
       steps{
