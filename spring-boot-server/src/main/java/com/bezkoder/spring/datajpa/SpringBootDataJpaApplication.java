@@ -17,12 +17,15 @@ public class SpringBootDataJpaApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/*").allowedOrigins("http://127.0.0.1:8080");
+				registry.addMapping("/**")
+						.allowedOrigins("*")
+						.allowedMethods("GET", "POST", "PUT", "DELETE")
+						.allowedHeaders("*");
 			}
-			
+
 		};
 	}
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDataJpaApplication.class, args);
 	}
