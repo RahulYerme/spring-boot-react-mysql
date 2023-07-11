@@ -57,7 +57,7 @@ pipeline{
       }
     }
     }
-  /*  stage('Building frontend image') {
+   stage('Building frontend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/react-client'){
       script {    
@@ -65,7 +65,7 @@ pipeline{
     }
   }
  }
-    }*/
+    }
    stage('Building backend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server'){
@@ -91,7 +91,7 @@ pipeline{
  }*/
 		
  
-/*stage('push docker image') {
+stage('push docker image') {
       steps {
 		script {
 			withDockerRegistry(credentialsId: 'dockerhub') {
@@ -101,7 +101,7 @@ pipeline{
 		  }
         
       }
-    }*/
+    }
    stage('push backend docker image') {
       steps {
 		script {
