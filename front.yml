@@ -15,7 +15,7 @@ spec:
       containers:
       - name: front-end
         image: rahulyerme1234/react-java-app:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
           - name: http
             containerPort: 8081   # Should match the Port that the container listens on
