@@ -77,7 +77,7 @@ pipeline{
     }*/
 stage('synk docker image') {
      steps{
-	
+	withEnv(['PATH+EXTRA=/root/.nvm/versions/node/v18.16.1/bin/snyk']){
       script { 
 	sh '''
            snyk auth e6f1ba75-da14-47db-9368-a74bcaded961 
@@ -89,7 +89,7 @@ stage('synk docker image') {
     }	
  }
  }
-		
+}	
  
 /*stage('push docker image') {
       steps {
