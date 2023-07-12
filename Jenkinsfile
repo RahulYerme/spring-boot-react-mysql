@@ -66,7 +66,7 @@ pipeline{
   }
  }
     }
-   stage('Building backend image') {
+  /* stage('Building backend image') {
      steps{
 	dir('/var/lib/jenkins/workspace/React-Java-app-pipeline/spring-boot-server'){
       script {    
@@ -74,8 +74,8 @@ pipeline{
     }
   }
  }
-    }
-/*stage('synk docker image') {
+    }*/
+stage('synk docker image') {
      steps{
 	
       script { 
@@ -88,10 +88,10 @@ pipeline{
         
     }	
  }
- }*/
+ }
 		
  
-stage('push docker image') {
+/*stage('push docker image') {
       steps {
 		script {
 			withDockerRegistry(credentialsId: 'dockerhub') {
@@ -101,8 +101,8 @@ stage('push docker image') {
 		  }
         
       }
-    }
-   stage('push backend docker image') {
+    }*/
+  /* stage('push backend docker image') {
       steps {
 		script {
 			withDockerRegistry(credentialsId: 'dockerhub') {
@@ -112,7 +112,7 @@ stage('push docker image') {
 		  }
         
       }
-    }
+    }*/
  
     
    stage("Nexus Repository Upload" ){
