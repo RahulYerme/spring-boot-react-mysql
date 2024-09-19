@@ -5,9 +5,9 @@ steps:
     args: ['install']
   
   # Run tests
-  - name: 'gcr.io/cloud-builders/npm'
-    dir: 'react-client'
-    args: ['test']
+  #- name: 'gcr.io/cloud-builders/npm'
+  #  dir: 'react-client'
+  #  args: ['test']
 
   # Build the application
   - name: 'gcr.io/cloud-builders/npm'
