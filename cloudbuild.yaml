@@ -6,10 +6,12 @@ steps:
   
   # Run tests
   - name: 'gcr.io/cloud-builders/npm'
+    dir: 'react-client'
     args: ['test']
 
   # Build the application
   - name: 'gcr.io/cloud-builders/npm'
+    dir: 'react-client'
     args: ['run', 'build']
 options:
   logging: CLOUD_LOGGING_ONLY
