@@ -1,6 +1,7 @@
 steps:
   # Install dependencies
   - name: 'gcr.io/cloud-builders/npm'
+    dir: 'react-client'
     args: ['install']
   
   # Run tests
