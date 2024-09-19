@@ -17,11 +17,11 @@ steps:
     # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     dir: 'react-client'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/frontendimage', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/frontendimage/frontendimage', '.']
 
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     dir: 'react-client'
-    args: ['push','us-central1-docker.pkg.dev/${PROJECT_ID}/frontendimage']
+    args: ['push','us-central1-docker.pkg.dev/${PROJECT_ID}/frontendimage/frontendimage']
 options:
   logging: CLOUD_LOGGING_ONLY
