@@ -24,7 +24,7 @@ steps:
     dir: 'react-client'
     args: ['push','us-central1-docker.pkg.dev/${PROJECT_ID}/frontendimage/frontendimage']
     
-  - name: 'maven:3.6-jdk-11'
+  - name: 'maven:3.6-jdk-17'
     dir: 'spring-boot-server'
     entrypoint: mvn
     args: ['install']
